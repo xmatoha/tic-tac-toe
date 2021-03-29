@@ -1,4 +1,5 @@
-(ns tic-tac-toe.core)
+(ns tic-tac-toe.core
+  (:require [clojure.string :refer [join upper-case]]))
 
 (defn empty-board [board-size]
   (->>
@@ -83,5 +84,13 @@
   (let [ec (empty-cells board)
         choosen-cell (get board (Math/round (rand (- (count ec) 1))))]
     (assoc-in board [(:offset choosen-cell) :state] who)))
+
+(defn row-to-string [row]
+  (->>
+   (map (fn [e] (if (= :e (:state e)) " " (upper-case (name (:state e))))) row)
+   (join "|")))
+
+
+
 
 

@@ -54,6 +54,12 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 21:18]
 *** DONE how player makes a move
     - State "DONE"       from "TODO"       [2021-03-29 Mon 21:54]
+** TODO display board-size
+*** IN-PROGRESS display row
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 22:15]
+*** IN-PROGRESS board should be rendered using terminal
+
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 21:55]
 * Tech debt
 ** DONE extract board offset  calculation
    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 17:32]

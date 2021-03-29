@@ -106,3 +106,8 @@
                        (make-move :x)))
               (count)))))))
 
+(deftest display-board-test
+  (testing "describe how board is displayed on screen"
+    (testing "row X,empty,O should render as follows 'X| |O' "
+      (is (= "X| |O" (row-to-string [{:state :x} {:state :e} {:state :o}]))))))
+
