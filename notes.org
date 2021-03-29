@@ -68,8 +68,11 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
 *** DONE game should start with empty board and first player to do a move
     - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 22:55]
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 22:55]
-*** IN-PROGRESS if current player is :x next player should be :o after game-round
+*** DONE if current player is :x next player should be :o after game-round
+    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 23:17]
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 22:55]
+*** DONE if current player is x board should contain players move after round
+    - State "DONE"       from "TODO"       [2021-03-29 Mon 23:18]
 * Tech debt
 ** DONE extract board offset  calculation
    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 17:32]

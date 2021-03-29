@@ -14,11 +14,8 @@
   (+ (* (calc-board-size board) row)   column))
 
 (defn occupy [board row column who]
-  (let [offset (calc-offset row column board)
-        elem (first (subvec board offset (+ offset 1)))]
-    (->>
-     (assoc elem :state who)
-     (assoc board offset))))
+  (let [offset (calc-offset row column board)]
+    (assoc-in board [offset :state] who)))
 
 (defn row [board row-offset]
   (subvec board
@@ -101,5 +98,13 @@
 (defn new-game [player]
   {:next-player player :current-board (empty-board 3)})
 
-(defn game-round [game-state])
+(defn game-round [game-state]
+  (-> game-state
+      (assoc  :current-board
+              (make-move (:current-board game-state) (:next-player game-state)))
+      (assoc
+
+       :next-player
+       (if (= :x (:next-player game-state)) :o :x))))
+
 

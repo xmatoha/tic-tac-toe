@@ -121,5 +121,10 @@
       (is {:next-player :x :current-board (empty-board 3)}
           (new-game :x)))
     (testing "if current player is :x next player should be :o after game-round"
-      (is (= :o (:next-player (game-round (new-game :x))))))))
+      (is (= :o (:next-player (game-round (new-game :x))))))
+    (testing "if it is player :x turn  board should contain player :x move after round"
+      (is (= 1 (count (filter (fn [e] (= (:state e) :x)) (:current-board (game-round (new-game :x))))))))))
+
+
+
 
