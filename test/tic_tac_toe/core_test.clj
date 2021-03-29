@@ -87,7 +87,7 @@
 
 (deftest player-making-move
   (testing "describe how player makes move"
-    (testing "player move is picket random from empty cells"
+    (testing "player move is picked random from empty cells"
       (is (= 1
              (->
               (filter (fn [e] (= (:state e) :x))

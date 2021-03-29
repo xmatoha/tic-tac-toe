@@ -149,4 +149,3 @@
     (Thread/sleep 2000))
   (println (print-winner (last rounds))))
 
-(display-game (game-loop :x))
