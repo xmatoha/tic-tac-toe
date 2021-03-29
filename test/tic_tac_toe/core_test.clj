@@ -89,13 +89,20 @@
   (testing "describe how player makes move"
     (testing "player move is picket random from empty cells"
       (is (= 1
-
              (->
               (filter (fn [e] (= (:state e) :x))
                       (->
                        (empty-board 3)
                        (make-move :x)))
+              (count)))))
+    (testing "player X should pick last empty cell if other cells are taken"
+      (is (= 1
+
+             (->
+              (filter (fn [e] (= (:state e) :x))
+                      (->
+                       (vec (map (fn [e] (assoc e :state :o)) (empty-board 3)))
+                       (occupy 0 0 :e)
+                       (make-move :x)))
               (count)))))))
-
-
 

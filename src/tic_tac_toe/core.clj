@@ -76,6 +76,12 @@
         (desc-diagnoale-won? board who) true
         :else false))
 
-(defn make-move [board who]
+(defn empty-cells [board]
+  (filter (fn [e]  (= (:state e) :e)) board))
 
-  board)
+(defn make-move [board who]
+  (let [ec (empty-cells board)
+        choosen-cell (get board (Math/round (rand (- (count ec) 1))))]
+    (assoc-in board [(:offset choosen-cell) :state] who)))
+
+
