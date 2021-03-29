@@ -16,6 +16,7 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    :END:
 *** TODO occupy 1 row and 1 collumn by player X
     :LOGBOOK:
+    CLOCK: [2021-03-29 Mon 17:58]
     CLOCK: [2021-03-29 Mon 17:32]--[2021-03-29 Mon 17:41] =>  0:09
     CLOCK: [2021-03-29 Mon 17:16]--[2021-03-29 Mon 17:27] =>  0:11
     :END:
@@ -27,5 +28,6 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    CLOCK: [2021-03-29 Mon 17:27]--[2021-03-29 Mon 17:32] =>  0:05
    :END:
    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 17:27]
-** define function is-empty to test for board cell emptines
-**  we most probably do not need board offset (examine and refactor)
+** TODO complicated won logic refactor!
+** TODO define function is-empty to test for board cell emptines
+** TODO  we most probably do not need board offset (examine and refactor)

@@ -20,5 +20,13 @@
      (assoc board offset))))
 
 (defn won? [board who]
-  true)
+  (->> (map (fn [e] (if (= e 3) true false))
+            (for [row (range 0 (calc-board-size board))]
+
+              (->>
+               (subvec board (calc-offset row 0 board))
+               (filter (fn [e] (= :x (:state e))))
+               (count))))
+       (some (fn [e] (= true e)))))
+
 
