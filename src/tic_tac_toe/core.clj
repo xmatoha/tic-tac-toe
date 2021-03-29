@@ -3,6 +3,6 @@
 (defn empty-board [board-size]
   (->>
    (range (* board-size board-size))
-   (map (fn [idx] {:offset idx}))))
+   (map (fn [idx] {:offset idx :state :e}))))
 
 
