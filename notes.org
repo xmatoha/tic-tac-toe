@@ -54,7 +54,8 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 21:18]
 *** DONE how player makes a move
     - State "DONE"       from "TODO"       [2021-03-29 Mon 21:54]
-** TODO display board-size
+** DONE display board-size
+   - State "DONE"       from "TODO"       [2021-03-29 Mon 22:54]
 *** DONE display row
     - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 22:30]
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 22:15]
@@ -63,6 +64,12 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
     - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 22:30]
     - State "IN-PROGRESS" from "IN-PROGRESS" [2021-03-29 Mon 22:30]
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 21:55]
+** TODO game play
+*** DONE game should start with empty board and first player to do a move
+    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 22:55]
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 22:55]
+*** IN-PROGRESS if current player is :x next player should be :o after game-round
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 22:55]
 * Tech debt
 ** DONE extract board offset  calculation
    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 17:32]
@@ -79,4 +86,6 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
 ** TODO extract won logic as it is same for row,col and most probably diagonale
 ** TODO cleanup board diagnoale functions
 ** TODO define function is-empty to test for board cell emptines
-** TODO  we most probably do not need board offset (examine and refactor)
+** DONE we most probably do not need board offset (examine and refactor)
+- offset proved to be useful :-)
+   - State "DONE"       from "TODO"       [2021-03-29 Mon 22:35]

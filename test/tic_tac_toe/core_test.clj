@@ -115,3 +115,11 @@
     (testing "should display empty board using row and row separator"
       (is (= " | | \n-+-+-\n | | \n-+-+-\n | | " (board-to-string (empty-board 3)))))))
 
+(deftest game-test
+  (testing "describe game"
+    (testing "game start with empty board and player with first move"
+      (is {:next-player :x :current-board (empty-board 3)}
+          (new-game :x)))
+    (testing "if current player is :x next player should be :o after game-round"
+      (is (= :o (:next-player (game-round (new-game :x))))))))
+

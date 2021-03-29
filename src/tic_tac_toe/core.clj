@@ -17,7 +17,7 @@
   (let [offset (calc-offset row column board)
         elem (first (subvec board offset (+ offset 1)))]
     (->>
-     (assoc elem :state :x)
+     (assoc elem :state who)
      (assoc board offset))))
 
 (defn row [board row-offset]
@@ -98,7 +98,8 @@
         (for [r (range 0 (calc-board-size board))]
           (row-to-string (row board r)))))
 
+(defn new-game [player]
+  {:next-player player :current-board (empty-board 3)})
 
-
-
+(defn game-round [game-state])
 
