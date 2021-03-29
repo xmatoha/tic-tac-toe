@@ -1,0 +1,10 @@
+* TODO TIC TAC TOE game
+The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD rules.
+** TODO 1 – Game Board Creation phase
+*** IN-PROGRESS describe board
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 16:46]
+    :LOGBOOK:
+    CLOCK: [2021-03-29 Mon 16:46]
+    :END:
+
+
