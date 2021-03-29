@@ -19,7 +19,8 @@
      (assoc elem :state :x)
      (assoc board offset))))
 
-(defn row [board row-offset])
+(defn row [board row-offset]
+  (subvec board (calc-offset row-offset 0 board) (calc-board-size board)))
 
 (defn won? [board who]
   (-> (map (fn [e] (if (= e 3) true false))
