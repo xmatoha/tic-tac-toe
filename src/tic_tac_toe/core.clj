@@ -76,3 +76,6 @@
         (desc-diagnoale-won? board who) true
         :else false))
 
+(defn make-move [board who]
+
+  board)

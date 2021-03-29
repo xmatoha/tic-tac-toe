@@ -50,6 +50,9 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
 *** DONE retrieve bord column by index offset
     - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 19:05]
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:56]
+** IN-PROGRESS describe player move
+   - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 21:18]
+*** TODO how player makes a move
 * Tech debt
 ** DONE extract board offset  calculation
    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 17:32]

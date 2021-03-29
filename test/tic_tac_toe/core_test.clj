@@ -77,7 +77,6 @@
                    (occupy 1 1 :x)
                    (occupy 2 2 :x)
                    (won? :x)))))
-
     (testing "player X won if desc diagonale is all X"
       (is (= true (->
                    (empty-board 3)
@@ -85,6 +84,18 @@
                    (occupy 1 1 :x)
                    (occupy 2 0 :x)
                    (won? :x)))))))
+
+(deftest player-making-move
+  (testing "describe how player makes move"
+    (testing "player move is picket random from empty cells"
+      (is (= 1
+
+             (->
+              (filter (fn [e] (= (:state e) :x))
+                      (->
+                       (empty-board 3)
+                       (make-move :x)))
+              (count)))))))
 
 
 
