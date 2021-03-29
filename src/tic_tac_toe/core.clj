@@ -19,5 +19,6 @@
      (assoc elem :state :x)
      (assoc board offset))))
 
-(defn won? [board who])
+(defn won? [board who]
+  true)
 
