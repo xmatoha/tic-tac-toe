@@ -22,9 +22,12 @@
   (testing "define board operations"
     (testing "occupy row 1 and column 1 by player X"
       (is (= :x
-             (:state (take 1 (->
-                              (empty-board 3)
-                              (occupy 1 1 :x)))))))))
+             (->
+              (empty-board 3)
+              (occupy 1 1 :x)
+              (subvec 0 1)
+              (first)
+              (:stateq)))))))
 
 (deftest winning-scenarios
   (testing "describe winning scenarios"

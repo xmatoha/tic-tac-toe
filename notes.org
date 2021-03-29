@@ -22,3 +22,4 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
 * Tech debt
 - define function is-empty to test for board cell emptines
 - we most probably do not need board offset (examine and refactor)
+- extract board offset  calculation

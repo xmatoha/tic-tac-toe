@@ -7,7 +7,9 @@
    (into [])))
 
 (defn occupy [board row column who]
+  (let [offset (+ (* 3 (- row 1)  (- column 1)))
+        elem (first (subvec board offset 1))]
+    (->>
+     (assoc elem :state :x)
+     (assoc board offset))))
 
-  (subvec board (+ (* 3 (- row 1)  (- column 1))) 1))
-
-(occupy (empty-board 3) 1 1 :x)
