@@ -73,6 +73,8 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 22:55]
 *** DONE if current player is x board should contain players move after round
     - State "DONE"       from "TODO"       [2021-03-29 Mon 23:18]
+*** IN-PROGRESS game loop
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 23:37]
 * Tech debt
 ** DONE extract board offset  calculation
    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 17:32]

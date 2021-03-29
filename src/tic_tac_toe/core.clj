@@ -74,6 +74,11 @@
         (desc-diagnoale-won? board who) true
         :else false))
 
+(defn winner? [board]
+  (cond (won? board :x) {:winner :x}
+        (won? board :o) {:winner :o}
+        :else nil))
+
 (defn empty-cells [board]
   (filter (fn [e]  (= (:state e) :e)) board))
 
@@ -106,5 +111,4 @@
 
        :next-player
        (if (= :x (:next-player game-state)) :o :x))))
-
 

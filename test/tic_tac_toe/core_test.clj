@@ -119,12 +119,22 @@
   (testing "describe game"
     (testing "game start with empty board and player with first move"
       (is {:next-player :x :current-board (empty-board 3)}
-          (new-game :x)))
+          (new-game :x))))
+
+  (testing "describe game round"
     (testing "if current player is :x next player should be :o after game-round"
       (is (= :o (:next-player (game-round (new-game :x))))))
     (testing "if it is player :x turn  board should contain player :x move after round"
-      (is (= 1 (count (filter (fn [e] (= (:state e) :x)) (:current-board (game-round (new-game :x))))))))))
+      (is (= 1 (count (filter (fn [e] (= (:state e) :x)) (:current-board (game-round (new-game :x))))))))
+    (testing "game state should indicate  if there is a winner after game round is finished"
+      (let [winning-board (->
+                           (empty-board 3)
+                           (occupy 0 2 :x)
+                           (occupy 1 1 :x)
+                           (occupy 2 0 :x))
 
-
+            winning-game-state (assoc (new-game :x) :current-board winning-board)]
+        (println winning-game-state)
+        (is (= :x (:winner (game-round winning-game-state))))))))
 
 
