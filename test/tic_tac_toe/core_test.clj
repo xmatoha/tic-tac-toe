@@ -20,14 +20,20 @@
 
 (deftest board-operations
   (testing "define board operations"
-    (testing "occupy row 1 and column 1 by player X"
+    (testing "occupy row 0 and column 0 by player X"
       (is (= :x
              (->
               (empty-board 3)
               (occupy 0 0 :x)
               (subvec 0 1)
               (first)
-              (:state)))))))
+              (:state)))))
+    (testing "should return row identified by index"
+      (is (= [{:offset 0 :state :x} {:offset 1 :state :e} {:offset 2 :state :e}]
+             (->
+              (empty-board 3)
+              (occupy 0 0 :x)
+              (row 0)))))))
 
 (deftest winning-scenarios
   (testing "describe winning scenarios"
