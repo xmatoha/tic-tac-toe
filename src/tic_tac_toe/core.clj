@@ -1,5 +1,6 @@
 (ns tic-tac-toe.core)
 
-(defn empty-board [size])
+(defn empty-board [board-size]
+  (range (* board-size board-size)))
 
 

@@ -6,4 +6,5 @@
   (testing "describe board"
     (testing "empty board of size 3x3 should contain 9 slots"
 
-      (is (= 9 (empty-board 3))))))
+      (is (= 9 (->> (empty-board 3)
+                    (count)))))))
