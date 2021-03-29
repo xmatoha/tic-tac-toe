@@ -74,18 +74,19 @@
         (desc-diagnoale-won? board who) true
         :else false))
 
-(defn winner? [board]
-  (cond (won? board :x) {:winner :x}
-        (won? board :o) {:winner :o}
-        :else nil))
+(won? [{:state :e} {:state :x} {:state :e}
+       {:state :e} {:state :e} {:state :e}
+       {:state :e} {:state :e} {:state :e}] :x)
 
 (defn empty-cells [board]
-  (filter (fn [e]  (= (:state e) :e)) board))
+  (vec (filter (fn [e]  (= (:state e) :e)) board)))
 
 (defn make-move [board who]
-  (let [ec (empty-cells board)
-        choosen-cell (get board (Math/round (rand (- (count ec) 1))))]
-    (assoc-in board [(:offset choosen-cell) :state] who)))
+  (let [ec (empty-cells board)]
+    (if (> (count ec) 0)
+      (assoc-in board
+                [(:offset (get ec (Math/round (rand (- (count ec) 1)))))
+                 :state] who) board)))
 
 (defn row-to-string [row]
   (->>
@@ -103,12 +104,49 @@
 (defn new-game [player]
   {:next-player player :current-board (empty-board 3)})
 
+(defn winner? [game-state]
+  (cond (won? (:current-board game-state) :x)
+        (assoc game-state :winner :x :game-over true)
+        (won? (:current-board game-state) :o)
+        (assoc game-state :winner :o :game-over true)
+        :else game-state))
+
+(defn game-over? [game-state]
+  (cond (not (= nil (:winner game-state)))
+        (assoc game-state :game-over true)
+        :else game-state))
+
+(defn board-full? [game-state]
+  (if (= (count (empty-cells (:current-board game-state))) 0) (assoc game-state :board-full true :game-over true) game-state))
+
 (defn game-round [game-state]
   (-> game-state
       (assoc  :current-board
               (make-move (:current-board game-state) (:next-player game-state)))
       (assoc
-
        :next-player
-       (if (= :x (:next-player game-state)) :o :x))))
+       (if (= :x (:next-player game-state)) :o :x))
+      (board-full?)
+      (winner?)))
 
+(defn print-winner [game-state]
+  (cond (= (:winner game-state) nil) "GAME ENDS WITH A DRAW!"
+        :else (str "PLAYER " (:winner game-state) " WON")))
+
+(defn game-loop [starts]
+  (loop [game-state (new-game starts) game []]
+    (if (= nil (:game-over game-state))
+      (recur  (game-round game-state) (conj game game-state))
+      (conj game game-state))))
+
+(defn display-game [rounds]
+  (println "**************************************")
+  (println "new game ")
+  (println "**************************************")
+  (doseq [r rounds]
+    (println (board-to-string (:current-board r)))
+    (println "----------------------------")
+    (Thread/sleep 2000))
+  (println (print-winner (last rounds))))
+
+(display-game (game-loop :x))

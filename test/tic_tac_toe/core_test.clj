@@ -134,7 +134,25 @@
                            (occupy 2 0 :x))
 
             winning-game-state (assoc (new-game :x) :current-board winning-board)]
-        (println winning-game-state)
-        (is (= :x (:winner (game-round winning-game-state))))))))
+        (is (= :x (:winner (game-round winning-game-state))))))
+
+    (testing "if there is a winner game state should indicate game over"
+      (let [winning-board (->
+                           (empty-board 3)
+                           (occupy 0 2 :x)
+                           (occupy 1 1 :x)
+                           (occupy 2 0 :x))
+
+            winning-game-state (assoc (new-game :x) :current-board winning-board)]
+        (is (= true (:game-over (game-round winning-game-state))))))
+    (testing "if there are no more free cells game state should indicate game over"
+      (let [game-over-board (vec (map (fn [e] (assoc e :state :o)) (empty-board 3)))
+            game-over-state  (assoc (new-game :x) :current-board game-over-board)]
+        (is (= true (:game-over (game-round game-over-state)))))))
+  (testing "game loop"
+    (testing "game loop should end with game state game-over"
+      (is (= true (:game-over (last (game-loop :x))))))
+    (testing "game should have maximum 9 moves"
+      (is (>= 9  (count (game-loop :x)))))))
 
 
