@@ -20,9 +20,15 @@
      (assoc board offset))))
 
 (defn row [board row-offset]
-  (subvec board (calc-offset row-offset 0 board) (+ (calc-offset row-offset 0 board) (calc-board-size board))))
+  (subvec board
+          (calc-offset row-offset 0 board)
+          (+ (calc-offset row-offset 0 board) (calc-board-size board))))
 
-(defn col [board col-offset])
+(defn col [board col-offset]
+  (flatten (for [row-offset (range 0 (calc-board-size board))]
+             (subvec board
+                     (calc-offset row-offset col-offset board)
+                     (+ 1 (calc-offset row-offset col-offset board))))))
 
 (defn row-won? [board who]
   (->>

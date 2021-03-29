@@ -34,7 +34,8 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
     CLOCK: [2021-03-29 Mon 18:14]--[2021-03-29 Mon 18:23] =>  0:09
     :END:
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:14]
-*** IN-PROGRESS retrieve bord column by index offset
+*** DONE retrieve bord column by index offset
+    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 19:05]
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:56]
 * Tech debt
 ** DONE extract board offset  calculation
