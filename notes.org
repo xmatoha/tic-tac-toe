@@ -11,16 +11,25 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    :END:
 *** DONE player with all cells in row wins
     - State "DONE"       from "TODO"       [2021-03-29 Mon 18:53]
-*** IN-PROGRESS player with all cells in column wins
+*** DONE player with all cells in column wins
+    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 19:07]
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:53]
     :LOGBOOK:
-    CLOCK: [2021-03-29 Mon 18:53]
+    CLOCK: [2021-03-29 Mon 18:53]--[2021-03-29 Mon 19:07] =>  0:14
     :END:
 ** IN-PROGRESS describe board operations
    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:14]
    :LOGBOOK:
    CLOCK: [2021-03-29 Mon 17:04]--[2021-03-29 Mon 17:11] =>  0:07
    :END:
+*** DONE get diagonale forward
+
+    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 19:48]
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 19:11]
+*** DONE get desc diagonale
+
+    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 21:06]
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 19:48]
 *** DONE occupy 0 row and 0 collumn by player X
     - State "DONE"       from "TODO"       [2021-03-29 Mon 18:01]
     :LOGBOOK:
@@ -50,5 +59,6 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    :LOGBOOK:
    CLOCK: [2021-03-29 Mon 18:01]--[2021-03-29 Mon 18:14] =>  0:13
    :END:
+** TODO extract won logic as it is same for row,col and most probably diagonale
 ** TODO define function is-empty to test for board cell emptines
 ** TODO  we most probably do not need board offset (examine and refactor)

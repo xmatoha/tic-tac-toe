@@ -30,6 +30,21 @@
                      (calc-offset row-offset col-offset board)
                      (+ 1 (calc-offset row-offset col-offset board))))))
 
+(defn asc-diagonale [board]
+  (flatten (for [row-offset (range 0 (calc-board-size board))]
+             (subvec board
+                     (calc-offset row-offset row-offset board)
+                     (+ 1 (calc-offset row-offset row-offset board))))))
+
+(defn desc-diagonale [board]
+  (flatten (for [row-offset (range (- (calc-board-size board) 1) -1 -1)]
+             (subvec board
+                     (calc-offset
+                      (- (calc-board-size board) row-offset 1) row-offset board)
+                     (+ 1
+                        (calc-offset
+                         (- (calc-board-size board) row-offset 1) row-offset board))))))
+
 (defn row-won? [board who]
   (->>
    (for [row-offset (range 0 (calc-board-size board))]
@@ -38,7 +53,13 @@
       (every? (fn [e] (= (:state e) who)))))
    (some true?)))
 
-(defn col-won? [board who])
+(defn col-won? [board who]
+  (->>
+   (for [row-offset (range 0 (calc-board-size board))]
+     (->>
+      (col board row-offset)
+      (every? (fn [e] (= (:state e) who)))))
+   (some true?)))
 
 (defn won? [board who]
   (cond (row-won? board who) true

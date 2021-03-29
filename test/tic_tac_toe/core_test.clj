@@ -39,7 +39,19 @@
              (->
               (empty-board 3)
               (occupy 1 1 :x)
-              (col 1)))))))
+              (col 1)))))
+    (testing "should return ascending diagnolae"
+      (is (= [{:offset 0 :state :e} {:offset 4 :state :x} {:offset 8 :state :e}]
+             (->
+              (empty-board 3)
+              (occupy 1 1 :x)
+              (asc-diagonale)))))
+    (testing "should return descending diagnolae"
+      (is (= [{:offset 2 :state :e} {:offset 4 :state :x} {:offset 6 :state :e}]
+             (->
+              (empty-board 3)
+              (occupy 1 1 :x)
+              (desc-diagonale)))))))
 
 (deftest winning-scenarios
   (testing "describe winning scenarios"
