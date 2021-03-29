@@ -5,4 +5,4 @@
    (range (* board-size board-size))
    (map (fn [idx] {:offset idx :state :e}))))
 
-
+(defn occupy [board row column who])

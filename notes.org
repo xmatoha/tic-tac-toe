@@ -8,8 +8,16 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
     :LOGBOOK:
     CLOCK: [2021-03-29 Mon 16:46]
     :END:
-
-
+** TODO describe winning scenarios
+   :LOGBOOK:
+   CLOCK: [2021-03-29 Mon 17:01]--[2021-03-29 Mon 17:04] =>  0:03
+   :END:
+*** TODO horizontal line winner
+** TODO describe board operations
+   :LOGBOOK:
+   CLOCK: [2021-03-29 Mon 17:04]--[2021-03-29 Mon 17:11] =>  0:07
+   :END:
+*** TODO occupy 1 row and 1 collumn by player X
 
 * Tech debt
 - define function is-empty to test for board cell emptines

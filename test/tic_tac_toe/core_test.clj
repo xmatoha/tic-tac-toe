@@ -17,3 +17,18 @@
              (->> (empty-board 3)
                   (filter (fn [e] (= :e (:state e))))
                   (count)))))))
+
+(deftest board-operations
+  (testing "define board operations"
+    (testing "occupy row 1 and column 1 by player X"
+      (is (= :x
+             (:state (take 1 (->
+                              (empty-board 3)
+                              (occupy 1 1 :x)))))))))
+
+(deftest winning-scenarios
+  (testing "describe winning scenarios"
+    (testing "player X won if all cells horizontally are occupied by player X"
+      ())))
+
+
