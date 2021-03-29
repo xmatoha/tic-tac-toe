@@ -90,6 +90,14 @@
    (map (fn [e] (if (= :e (:state e)) " " (upper-case (name (:state e))))) row)
    (join "|")))
 
+(defn row-separator [size]
+  (join "+" (map (fn [_] "-") (range 0 size))))
+
+(defn board-to-string [board]
+  (join (str "\n" (row-separator (calc-board-size board)) "\n")
+        (for [r (range 0 (calc-board-size board))]
+          (row-to-string (row board r)))))
+
 
 
 

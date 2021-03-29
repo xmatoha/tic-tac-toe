@@ -109,5 +109,9 @@
 (deftest display-board-test
   (testing "describe how board is displayed on screen"
     (testing "row X,empty,O should render as follows 'X| |O' "
-      (is (= "X| |O" (row-to-string [{:state :x} {:state :e} {:state :o}]))))))
+      (is (= "X| |O" (row-to-string [{:state :x} {:state :e} {:state :o}]))))
+    (testing "row separator should be -+-+-"
+      (is (= "-+-+-" (row-separator 3))))
+    (testing "should display empty board using row and row separator"
+      (is (= " | | \n-+-+-\n | | \n-+-+-\n | | " (board-to-string (empty-board 3)))))))
 
