@@ -9,6 +9,13 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    :LOGBOOK:
    CLOCK: [2021-03-29 Mon 17:01]--[2021-03-29 Mon 17:04] =>  0:03
    :END:
+*** DONE player with all cells in row wins
+    - State "DONE"       from "TODO"       [2021-03-29 Mon 18:53]
+*** IN-PROGRESS player with all cells in column wins
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:53]
+    :LOGBOOK:
+    CLOCK: [2021-03-29 Mon 18:53]
+    :END:
 ** IN-PROGRESS describe board operations
    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:14]
    :LOGBOOK:
@@ -21,13 +28,14 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
     CLOCK: [2021-03-29 Mon 17:32]--[2021-03-29 Mon 17:41] =>  0:09
     CLOCK: [2021-03-29 Mon 17:16]--[2021-03-29 Mon 17:27] =>  0:11
     :END:
-*** IN-PROGRESS retrieve board row by index offset
+*** DONE retrieve board row by index offset
+    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 18:51]
     :LOGBOOK:
-    CLOCK: [2021-03-29 Mon 18:14]
+    CLOCK: [2021-03-29 Mon 18:14]--[2021-03-29 Mon 18:23] =>  0:09
     :END:
-
-
     - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:14]
+*** IN-PROGRESS retrieve bord column by index offset
+    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:56]
 * Tech debt
 ** DONE extract board offset  calculation
    - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 17:32]
@@ -35,7 +43,8 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    CLOCK: [2021-03-29 Mon 17:27]--[2021-03-29 Mon 17:32] =>  0:05
    :END:
    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 17:27]
-** IN-PROGRESS complicated won logic refactor!
+** DONE complicated won logic refactor!
+   - State "DONE"       from "IN-PROGRESS" [2021-03-29 Mon 18:52]
    - State "IN-PROGRESS" from "TODO"       [2021-03-29 Mon 18:01]
    :LOGBOOK:
    CLOCK: [2021-03-29 Mon 18:01]--[2021-03-29 Mon 18:14] =>  0:13

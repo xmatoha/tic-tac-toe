@@ -33,7 +33,13 @@
              (->
               (empty-board 3)
               (occupy 0 0 :x)
-              (row 0)))))))
+              (row 0)))))
+    (testing "should return column by col index"
+      (is (= [{:offset 0 :state :e} {:offset 1 :state :x} {:offset 2 :state :e}]
+             (->
+              (empty-board 3)
+              (occupy 0 1 :x)
+              (col 1)))))))
 
 (deftest winning-scenarios
   (testing "describe winning scenarios"
@@ -43,6 +49,15 @@
                    (occupy 0 0 :x)
                    (occupy 0 1 :x)
                    (occupy 0 2 :x)
+                   (won? :x)))))
+
+    (testing "player X won if all vertical cells are occupied by player X"
+      (is (= true (->
+                   (empty-board 3)
+                   (occupy 0 0 :x)
+                   (occupy 1 0 :x)
+                   (occupy 2 0 :x)
                    (won? :x)))))))
+
 
 

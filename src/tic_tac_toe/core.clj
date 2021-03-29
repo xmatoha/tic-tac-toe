@@ -20,15 +20,22 @@
      (assoc board offset))))
 
 (defn row [board row-offset]
-  (subvec board (calc-offset row-offset 0 board) (calc-board-size board)))
+  (subvec board (calc-offset row-offset 0 board) (+ (calc-offset row-offset 0 board) (calc-board-size board))))
+
+(defn col [board col-offset])
+
+(defn row-won? [board who]
+  (->>
+   (for [row-offset (range 0 (calc-board-size board))]
+     (->>
+      (row board row-offset)
+      (every? (fn [e] (= (:state e) who)))))
+   (some true?)))
+
+(defn col-won? [board who])
 
 (defn won? [board who]
-  (-> (map (fn [e] (if (= e 3) true false))
-           (for [row (range 0 (calc-board-size board))]
-             (->>
-              (subvec board (calc-offset row 0 board))
-              (filter (fn [e] (= :x (:state e))))
-              (count))))
-      (some?)))
-
+  (cond (row-won? board who) true
+        (col-won? board who) true
+        :else false))
 
