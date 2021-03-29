@@ -69,6 +69,13 @@
                    (occupy 0 0 :x)
                    (occupy 1 0 :x)
                    (occupy 2 0 :x)
+                   (won? :x)))))
+    (testing "player X won if asc diagonale is all X"
+      (is (= true (->
+                   (empty-board 3)
+                   (occupy 0 0 :x)
+                   (occupy 1 1 :x)
+                   (occupy 2 2 :x)
                    (won? :x)))))))
 
 

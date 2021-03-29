@@ -61,8 +61,13 @@
       (every? (fn [e] (= (:state e) who)))))
    (some true?)))
 
+(defn asc-diagnoale-won? [board who]
+  (every? (fn [e] (= (:state e) who))
+          (asc-diagonale board)))
+
 (defn won? [board who]
   (cond (row-won? board who) true
         (col-won? board who) true
+        (asc-diagnoale-won? board who) true
         :else false))
 
