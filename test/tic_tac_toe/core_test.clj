@@ -24,14 +24,19 @@
       (is (= :x
              (->
               (empty-board 3)
-              (occupy 1 1 :x)
+              (occupy 0 0 :x)
               (subvec 0 1)
               (first)
-              (:stateq)))))))
+              (:state)))))))
 
 (deftest winning-scenarios
   (testing "describe winning scenarios"
     (testing "player X won if all cells horizontally are occupied by player X"
-      ())))
+      (is (= true (->
+                   (empty-board 3)
+                   (occupy 0 0 :x)
+                   (occupy 0 1 :x)
+                   (occupy 0 2 :x)
+                   (won? :x)))))))
 
 

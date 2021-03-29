@@ -10,12 +10,14 @@
   (int (Math/sqrt (count board))))
 
 (defn calc-offset [row column board]
-  (+ (* (calc-board-size board) (- row 1)  (- column 1))))
+  (+ (* (calc-board-size board) row)   column))
 
 (defn occupy [board row column who]
   (let [offset (calc-offset row column board)
-        elem (first (subvec board offset 1))]
+        elem (first (subvec board offset (+ offset 1)))]
     (->>
      (assoc elem :state :x)
      (assoc board offset))))
+
+(defn won? [board who])
 

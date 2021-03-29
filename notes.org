@@ -16,7 +16,7 @@ The exercise involves developing a Tic-Tac-Toe game strictly adhering to the TDD
    :END:
 *** TODO occupy 1 row and 1 collumn by player X
     :LOGBOOK:
-    CLOCK: [2021-03-29 Mon 17:32]
+    CLOCK: [2021-03-29 Mon 17:32]--[2021-03-29 Mon 17:41] =>  0:09
     CLOCK: [2021-03-29 Mon 17:16]--[2021-03-29 Mon 17:27] =>  0:11
     :END:
 
