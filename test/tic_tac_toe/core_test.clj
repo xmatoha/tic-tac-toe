@@ -1,6 +1,6 @@
 (ns tic-tac-toe.core-test
-  (:require [clojure.test :refer :all]
-            [tic-tac-toe.core :refer :all]))
+  (:require [clojure.test :refer [deftest is testing]]
+            [tic-tac-toe.core :refer [asc-diagonale board-to-string col desc-diagonale empty-board game-loop game-round make-move new-game occupy row row-separator row-to-string won?]]))
 
 (deftest board-test
   (testing "describe board"
@@ -97,7 +97,6 @@
               (count)))))
     (testing "player X should pick last empty cell if other cells are taken"
       (is (= 1
-
              (->
               (filter (fn [e] (= (:state e) :x))
                       (->
@@ -152,7 +151,7 @@
   (testing "game loop"
     (testing "game loop should end with game state game-over"
       (is (= true (:game-over (last (game-loop :x))))))
-    (testing "game should have maximum 9 moves"
-      (is (>= 9  (count (game-loop :x)))))))
+    (testing "game should have maximum 9 moves 9 + 1 (history)"
+      (is (>= 10  (count (game-loop :x)))))))
 
 
