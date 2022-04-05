@@ -1,0 +1,5 @@
+build:
+  docker:
+    api: Dockerfile
+run:
+  api: java -cp tic-tac-toe.jar tic_tac_toe.main

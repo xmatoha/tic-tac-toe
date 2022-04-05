@@ -1,7 +1,9 @@
-from clojure
+from clojure as build
 COPY project.clj .
 RUN lein deps
 COPY . .
 RUN lein test
 RUN lein uberjar
-CMD ["java", "-cp", "target/uberjar/tic-tac-toe-0.1.0-SNAPSHOT-standalone.jar", "tic_tac_toe.main"]
+from clojure as run
+COPY --from=build /tmp/target/uberjar/tic-tac-toe-0.1.0-SNAPSHOT-standalone.jar tic-tac-toe.jar
+CMD ["java", "-cp", "tic-tac-toe.jar", "tic_tac_toe.main"]
