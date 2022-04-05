@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: java -cp tic-tac-toe.jar clojure.main -m tic_tac_toe.main
+  web: java -cp tic-tac-toe.jar clojure.main -m tic-tac-toe.main
