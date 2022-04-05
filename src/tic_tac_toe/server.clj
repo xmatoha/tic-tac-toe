@@ -56,13 +56,12 @@
    {:executor sieppari/executor}))
 
 (defn get-port []
-  (if-let [port  (System/getenv "PORT")] port 3000)
-)
+  (if-let [port  (System/getenv "PORT")] port 3000))
 
 (defn start []
   (jetty/run-jetty #'app {:port (get-port), :join? false, :async true})
   ;(aleph/start-server (aleph/wrap-ring-async-handler #'app) {:port 3000})
-  (println (str "Server running in port" (get-port)))
+  (println (str "Server running in port" (get-port))))
 
 (comment
   (start))
