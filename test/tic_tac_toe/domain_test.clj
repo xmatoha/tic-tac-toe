@@ -1,6 +1,6 @@
 (ns tic-tac-toe.domain-test
   (:require [clojure.test :refer [deftest is testing]]
-            [tic-tac-toe.core :refer (empty-board)]))
+            [tic-tac-toe.domain :refer (empty-board)]))
 
 (deftest empty-board-test
   (testing "board should have board-size * board-size free slots"
