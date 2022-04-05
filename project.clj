@@ -8,6 +8,7 @@
   :main ^:skip-aot tic-tac-toe.core
   :target-path "target/%s"
   :aliases {"test" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner"]
+            "features" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "features"]
             "watch" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--watch"]
             "lint" ["run" "-m" "clj-kondo.main" "--lint" "src"]}
   :profiles {:kaocha {:dependencies [[lambdaisland/kaocha-cucumber "0.0-53"]
