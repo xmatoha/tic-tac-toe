@@ -1,5 +1,5 @@
 build:
   docker:
-    api: Dockerfile
+    web: Dockerfile
 run:
-  api: java -cp tic-tac-toe.jar tic_tac_toe.main
+  web: java -cp tic-tac-toe.jar clojure.main -m tic_tac_toe.main
