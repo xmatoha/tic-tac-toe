@@ -56,7 +56,7 @@
    {:executor sieppari/executor}))
 
 (defn get-port []
-  (if-let [port  (System/getenv "PORT")] port 3000))
+  (if-let [port  (System/getenv "PORT")] (Integer/valueOf port) 3000))
 
 (defn start []
   (jetty/run-jetty #'app {:port (get-port), :join? false, :async true})
@@ -65,3 +65,5 @@
 
 (comment
   (start))
+
+
