@@ -1,0 +1,29 @@
+
+* General plan
+** cover legacy code with tests
+- focus on entry points to logic
+** create feature tests
+** refactor code to use csp
+
+
+
+** Progress
+** DONE Pomodoro 1
+- State "DONE"       from "TODO"       [2022-04-06 Wed 12:24]
+- State "TODO"       from "IN-PROGRESS" [2022-04-06 Wed 10:32]
+:LOGBOOK:
+CLOCK: [2022-04-06 Wed 09:33]--[2022-04-06 Wed 09:58] =>  0:25
+:END:
+- State "IN-PROGRESS" from "TODO"       [2022-04-06 Wed 09:33]
+- cover existing functionality with tests
+** DONE Pomodor 2
+- State "DONE"       from "IN-PROGRESS" [2022-04-06 Wed 12:24]
+:LOGBOOK:
+CLOCK: [2022-04-06 Wed 10:32]--[2022-04-06 Wed 10:57] =>  0:25
+:END:
+- State "IN-PROGRESS" from              [2022-04-06 Wed 10:32]
+- game round tests
+
+** Pomodoro 3
+- we need to make game round move explicit in order to enable
+  multiplayer game and feature tests

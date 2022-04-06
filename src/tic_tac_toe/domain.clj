@@ -74,10 +74,6 @@
         (desc-diagnoale-won? board who) true
         :else false))
 
-(won? [{:state :e} {:state :x} {:state :e}
-       {:state :e} {:state :e} {:state :e}
-       {:state :e} {:state :e} {:state :e}] :x)
-
 (defn empty-cells [board]
   (vec (filter (fn [e]  (= (:state e) :e)) board)))
 
@@ -111,10 +107,10 @@
         (assoc game-state :winner :o :game-over true)
         :else game-state))
 
-(defn game-over? [game-state]
-  (cond (not (= nil (:winner game-state)))
-        (assoc game-state :game-over true)
-        :else game-state))
+;; (defn game-over? [game-state]
+;;   (cond (not (= nil (:winner game-state)))
+;;         (assoc game-state :game-over true)
+;;         :else game-state))
 
 (defn board-full? [game-state]
   (if (= (count (empty-cells (:current-board game-state))) 0) (assoc game-state :board-full true :game-over true) game-state))
@@ -148,5 +144,4 @@
     (println "----------------------------")
     (Thread/sleep 2000))
   (println (print-winner (last rounds))))
-
 
