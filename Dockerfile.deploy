@@ -1,0 +1,5 @@
+FROM registry.access.redhat.com/ubi8/openjdk-17
+user root
+RUN microdnf -y install gzip which
+RUN curl -o lein https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein && chmod +x lein && ./lein && mv lein /usr/local/bin
+RUN curl -O https://download.clojure.org/install/linux-install-1.11.1.1105.sh && chmod +x linux-install-1.11.1.1105.sh && ./linux-install-1.11.1.1105.sh

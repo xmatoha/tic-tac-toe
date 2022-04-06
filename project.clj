@@ -13,6 +13,8 @@
             "features" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "features"]
             "watch" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--fail-fast" "--watch" "unit"]
             "lint" ["run" "-m" "clj-kondo.main" "--lint" "src"]}
+  :plugins [[refactor-nrepl "3.5.2"]
+          [cider/cider-nrepl "0.28.3"]]
   :profiles {:kaocha {:dependencies [[lambdaisland/kaocha-cucumber "0.0-53"]
                                      [lambdaisland/kaocha "1.64.1010"]
                                      [lambdaisland/kaocha-cloverage "1.0.75"]]}

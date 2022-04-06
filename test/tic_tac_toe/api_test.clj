@@ -4,3 +4,4 @@
 
 (deftest health-check-test
   (is (= {:status 200 :body {:msg "ok"}} (health-handler [{}]))))
+

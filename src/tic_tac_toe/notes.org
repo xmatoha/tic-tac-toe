@@ -24,6 +24,9 @@ CLOCK: [2022-04-06 Wed 10:32]--[2022-04-06 Wed 10:57] =>  0:25
 - State "IN-PROGRESS" from              [2022-04-06 Wed 10:32]
 - game round tests
 
-** Pomodoro 3
-- we need to make game round move explicit in order to enable
+** TODO Pomodoro 3
+- [ ] we need to make game round move explicit in order to enable
   multiplayer game and feature tests
+- [ ] game initiation features
+- [ ] cover game draw game state with test case
+

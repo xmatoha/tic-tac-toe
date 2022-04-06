@@ -15,55 +15,57 @@
             [reitit.http.interceptors.parameters :as parameters]
             [reitit.http.interceptors.exception :as exception]))
 
-(def app
+(defn routes []
+  [["/swagger.json"
+    {:get {:no-doc true
+           :swagger {:info {:title "tic-tac-toe api"
+                            :description "tic-tac-toe api"}}
+           :handler (swagger/create-swagger-handler)}}]
+   ["/health" {:get {:summary "service health check"
+                     :responses {200 {:body {:msg string?}}}
+                     :handler health-handler}}]])
+
+(defn router-config []
+  {:exception pretty/exception
+   :data {:coercion reitit.coercion.spec/coercion
+          :muuntaja m/instance
+          :interceptors [swagger/swagger-feature
+                         (parameters/parameters-interceptor)
+                         (muuntaja/format-negotiate-interceptor)
+                         (muuntaja/format-response-interceptor)
+                         (exception/exception-interceptor)
+                         (muuntaja/format-request-interceptor)
+                         (coercion/coerce-response-interceptor)
+                         (coercion/coerce-request-interceptor)]}})
+
+(defn app []
   (http/ring-handler
-   (http/router
-    [["/swagger.json"
-      {:get {:no-doc true
-             :swagger {:info {:title "tic-tac-toe api"
-                              :description "tic-tac-toe api"}}
-             :handler (swagger/create-swagger-handler)}}]
-     ["/health" {:get {:summary "service health check"
-                       :responses {200 {:body {:msg string?}}}
-                       :handler health-handler}}]]
-
-    {:exception pretty/exception
-     :data {:coercion reitit.coercion.spec/coercion
-            :muuntaja m/instance
-            :interceptors [;; swagger feature
-                           swagger/swagger-feature
-                             ;; query-params & form-params
-                           (parameters/parameters-interceptor)
-                             ;; content-negotiation
-                           (muuntaja/format-negotiate-interceptor)
-                             ;; encoding response body
-                           (muuntaja/format-response-interceptor)
-                             ;; exception handling
-                           (exception/exception-interceptor)
-                             ;; decoding request body
-                           (muuntaja/format-request-interceptor)
-                             ;; coercing response bodys
-                           (coercion/coerce-response-interceptor)
-                             ;; coercing request parameters
-                           (coercion/coerce-request-interceptor)]}})
-
+   (http/router (routes) (router-config))
    (ring/routes
     (swagger-ui/create-swagger-ui-handler
      {:path "/"
       :config {:validatorUrl nil
-               :operationsSorter "alpha"}})
-    (ring/create-default-handler))
+               :operationsSorter "alpha"}}))
    {:executor sieppari/executor}))
 
-(defn get-port []
-  (if-let [port  (System/getenv "PORT")] (Integer/valueOf port) 3000))
+(defn get-port [env]
+  (if-let [port  (get env "PORT")] (Integer/valueOf port) 3000))
 
-(defn start []
-  (jetty/run-jetty #'app {:port (get-port), :join? false, :async true})
-  ;(aleph/start-server (aleph/wrap-ring-async-handler #'app) {:port 3000})
-  (println (str "Server running in port" (get-port))))
+(defn merge-env [e]
+  (merge e (into {} (System/getenv))))
+
+(defonce jetty (atom  {}))
+
+(defn start [env]
+  (let [port (get-port env)]
+    (reset! jetty (jetty/run-jetty #'app {:port port , :join? false, :async true}))
+
+    (println (str "Server running in port " port))))
 
 (comment
-  (start))
+  (start (merge-env {})))
 
+(comment
+  (.stop @jetty))
 
+;(aleph/start-server (aleph/wrap-ring-async-handler #'app) {:port 3000})
