@@ -28,13 +28,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: test
       run: lein test
-    - uses: akhileshns/heroku-deploy@v3.12.12 
-      env:
-        VERSION: ${{ steps.tag_version.outputs.new_tag }}
-      with: 
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "xpfarm-tictactoe-api"
-        heroku_email: "martin.hablak@gmail.com"
-        usedocker: true
-        docker_build_args: |
-          VERSION
