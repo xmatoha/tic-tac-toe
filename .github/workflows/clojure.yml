@@ -36,4 +36,5 @@ jobs:
         heroku_app_name: "xpfarm-tictactoe-api"
         heroku_email: "martin.hablak@gmail.com"
         usedocker: true
-        docker_build_args: VERSION=${{ steps.tag_version.outputs.new_tag }}
+        docker_build_args: |
+          VERSION ${{ steps.tag_version.outputs.new_tag }}
