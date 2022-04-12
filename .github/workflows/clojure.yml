@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Build and push
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: false
+        tags: user/app:latest
     - uses: akhileshns/heroku-deploy@v3.12.12 
       with: 
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
