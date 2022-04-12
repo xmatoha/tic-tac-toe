@@ -26,11 +26,11 @@ jobs:
       uses: mathieudutour/github-tag-action@v6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: 
-      run: lein test
-    - name: 
+    # - name: test
+    #   run: lein test
+    - name: lein version
       run: lein bump-version ${{ steps.tag_version.outputs.new_tag }}
-    - name: 
+    - name: uberjar
       run: lein uberjar
     - name: Build and push
       uses: docker/build-push-action@v2
