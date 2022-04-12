@@ -2,5 +2,5 @@
 
 (defn health-handler [_]
   {:status 200
-   :body {:msg "ok1"}})
+   :body {:msg "ok"}})
 
