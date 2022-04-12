@@ -3,5 +3,5 @@
             [tic-tac-toe.api :refer [health-handler]]))
 
 (deftest health-check-test
-  (is (= {:status 200 :body {:msg "ok"}} (health-handler [{}]))))
+  (is (= {:status 200 :body {:msg "ok1"}} (health-handler [{}]))))
 
