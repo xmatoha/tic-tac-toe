@@ -32,8 +32,8 @@ jobs:
         context: .
         push: false
         tags: user/app:latest
-        build-args: 
-          - arg=${{ steps.tag_version.outputs.new_tag }}
+        build-args: |
+          arg=${{ steps.tag_version.outputs.new_tag }}
     - name: 
       run: lein test
     - name: 
