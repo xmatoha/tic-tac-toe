@@ -39,7 +39,7 @@ jobs:
         push: false
         tags: user/app:latest
         build-args: |
-          arg=${{ steps.tag_version.outputs.new_tag }}
+          VERSION=${{ steps.tag_version.outputs.new_tag }}
     # - uses: akhileshns/heroku-deploy@v3.12.12 
     #   with: 
     #     heroku_api_key: ${{secrets.HEROKU_API_KEY}}
